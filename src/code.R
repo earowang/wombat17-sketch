@@ -338,31 +338,51 @@ sx %>%
   mutate(Date = as_date(Date_Time)) %>% 
   filter(between(Date, as_date("2011-01-10"), as_date("2011-01-16"))) %>% 
   ggplot(aes(x = Date_Time, y = Hourly_Counts)) +
-  geom_line()
+  geom_line() +
+  scale_x_datetime(date_breaks = "1 day", date_labels = "%a") +
+  xlab("Weekday") +
+  ylab("Pedestrian Counts") +
+  theme_remark()
 
+## ---- sx-month
 sx %>% 
   mutate(Date = as_date(Date_Time)) %>% 
   filter(between(Date, as_date("2011-01-01"), as_date("2011-01-31"))) %>% 
   ggplot(aes(x = Date_Time, y = Hourly_Counts)) +
-  geom_line()
+  geom_line() +
+  xlab("Date") +
+  ylab("Pedestrian Counts") +
+  theme_remark()
 
+## ---- sx-year
 sx %>% 
   mutate(Date = as_date(Date_Time)) %>% 
   filter(Year == 2011) %>% 
   ggplot(aes(x = Date_Time, y = Hourly_Counts, group = Date)) +
-  geom_line()
+  geom_line() +
+  xlab("Date") +
+  ylab("Pedestrian Counts") +
+  theme_remark()
 
+## ---- sx-2years
 sx %>% 
   mutate(Date = as_date(Date_Time)) %>% 
   filter(Year <= 2012) %>% 
   ggplot(aes(x = Date_Time, y = Hourly_Counts, group = Date)) +
-  geom_line()
+  geom_line() +
+  xlab("Date") +
+  ylab("Pedestrian Counts") +
+  theme_remark()
 
-# visualise
+## ---- sx-6years
 sx %>% 
   ggplot(aes(x = Date_Time, y = Hourly_Counts)) +
-  geom_line()
+  geom_line() +
+  xlab("Date") +
+  ylab("Pedestrian Counts") +
+  theme_remark()
 
+## ---- sx-facet-year
 sx %>% 
   mutate(Date_Time = ymd_h(paste( # hacking to prepare date time for ggplot2
     paste(2016, Month, Mdate, sep = "-"),
@@ -370,16 +390,36 @@ sx %>%
   ) %>% 
   ggplot(aes(x = Date_Time, y = Hourly_Counts)) +
   geom_line() +
-  facet_grid(Year ~ .)
+  facet_grid(Year ~ .) +
+  scale_x_datetime(date_breaks = "1 month", date_labels = "%b") +
+  xlab("Date") +
+  ylab("Pedestrian Counts") +
+  theme_remark()
 
+## ---- sx-feb
+p <- sx %>% 
+  filter(Year == 2017, Month == "February") %>% 
+  frame_calendar(Time, Hourly_Counts, Date_Time, ncol = 1, nrow = 1) %>% 
+  ggplot(aes(.x, .y, group = .group_id)) +
+  geom_line() +
+  theme_remark()
+prettify(p)
 
+## ---- sx-2016
+# calendar-plot
+p2016 <- sx %>% 
+  filter(Year >= 2016) %>% 
+  frame_calendar(Time, Hourly_Counts, Date_Time, ncol = 4, nrow = 4) %>% 
+  ggplot(aes(.x, .y, group = .group_id)) +
+  geom_line() +
+  theme_remark()
+prettify(p2016)
+
+## ---- sx-calendar
 # calendar-plot
 sx_cal <- sx %>% 
-  frame_calendar(Time, Hourly_Counts, Date_Time, ncol = 12, nrow = 7,
-    scale = "local")
-
-p <- sx_cal %>% 
+  frame_calendar(Time, Hourly_Counts, Date_Time, ncol = 12, nrow = 7) %>% 
   ggplot(aes(.x, .y, group = .group_id)) +
-  geom_line()
-p
-prettify(p)
+  geom_line() +
+  theme_void()
+sx_cal

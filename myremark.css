@@ -21,7 +21,10 @@ h1, h2, h3 {
   font-style: italic;
   font-size: 70%;
 }
-li { line-height: 1.85em; }
+li { 
+  line-height: 1.85em; 
+  font-size: 1.2em;
+}
 li p { line-height: 1.25em; }
 li {
   list-style-type: none;

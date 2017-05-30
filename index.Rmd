@@ -262,6 +262,20 @@ background-size: cover
 
 ---
 
+class: middle center
+
+```{r elec-line, echo = FALSE, dev = "CairoPNG", dpi = 300}
+```
+
+## 2010-2014 half hourly residential electricity demand
+
+---
+
+background-image:url(img/elec-cal-1-adjust.png)
+background-size: 100%
+
+---
+
 background-image: url(img/question.jpg)
 background-size: cover
 

@@ -423,3 +423,23 @@ sx_cal <- sx %>%
   geom_line() +
   theme_void()
 sx_cal
+
+## ---- elec-line
+elec_vic <- read_rds("data/elec.rds") %>% 
+  filter(Year %in% 2010:2014)
+elec_vic %>% 
+  ggplot(aes(x = DateTime, y = OperationalLessIndustrial)) +
+  geom_line() +
+  xlab("Date Time") +
+  ylab("Half Hourly Residential Electricity Demand") +
+  theme_remark()
+
+## ---- elec-cal
+cal <- elec_vic %>% 
+  frame_calendar(x = HourMins0, y = OperationalLessIndustrial, 
+    date = DateTime, ncol = 12, nrow = 14)
+
+cal %>% 
+  ggplot(aes(x = .x, y = .y, group = .group_id)) +
+  geom_line() +
+  theme_void()

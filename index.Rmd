@@ -17,7 +17,7 @@ class: bottom center
 background-image: url(img/sx.jpg)
 background-size: cover
 
-```{r initial, echo = FALSE, cache = FALSE, results = 'hide'}
+```{r initial, cache = FALSE, include = FALSE}
 library(knitr)
 options(htmltools.dir.version = FALSE, tibble.width = 60)
 opts_chunk$set(
@@ -28,6 +28,7 @@ opts_chunk$set(
 )
 read_chunk('src/code.R')
 ```
+
 ```{r load}
 ```
 
@@ -43,10 +44,18 @@ read_chunk('src/code.R')
 
 class: middle center
 
+# Let's turn back time to <br> 10th of Jan, 2011
+
+<i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
+
+---
+
+class: middle center
+
 ```{r sx4}
 ```
 
-## in the bed
+## nobody
 
 ---
 
@@ -55,7 +64,7 @@ class: middle center
 ```{r sx5}
 ```
 
-## very early bird
+## very early birds
 
 ---
 
@@ -64,7 +73,7 @@ class: middle center
 ```{r sx6}
 ```
 
-## early bird
+## early birds
 
 ---
 
@@ -73,7 +82,7 @@ class: middle center
 ```{r sx7}
 ```
 
-## commuting to work
+## commuters to work
 
 ---
 
@@ -82,7 +91,7 @@ class: middle center
 ```{r sx8}
 ```
 
-## commuting to work
+## commuters to work
 
 ---
 
@@ -154,7 +163,7 @@ class: middle center
 ```{r sx16}
 ```
 
-## commuting home
+## commuters home
 
 ---
 
@@ -163,7 +172,7 @@ class: middle center
 ```{r sx17}
 ```
 
-## commuting home
+## commuters home
 
 ---
 
@@ -172,7 +181,7 @@ class: middle center
 ```{r sx18}
 ```
 
-## at home
+## wanderers
 
 ---
 
@@ -181,7 +190,7 @@ class: middle center
 ```{r sx19}
 ```
 
-## in the bed
+## nobody
 
 ---
 
@@ -284,6 +293,14 @@ class: middle center
 
 background-image:url(img/elec-cal-1-adjust.png)
 background-size: 100%
+
+---
+
+class: middle center
+
+# The 3rd or more examples are there for you to add and explore.
+
+<i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
 
 ---
 

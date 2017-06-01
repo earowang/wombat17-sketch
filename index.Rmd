@@ -181,7 +181,7 @@ class: middle center
 ```{r sx18}
 ```
 
-## wanderers
+## commuters home
 
 ---
 
